@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>tx-lcn</artifactId>
+        <groupId>com.xiu</groupId>
+        <version>4.1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>tx-plugins-db</artifactId>
+    <version>${lcn.last.version}</version>
+    <name>tx-plugins-db</name>
+    <url>https://github.com/codingapi/tx-lcn</url>
+    <description>tx-plugins-db project for Spring Boot</description>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.xiu</groupId>
+            <artifactId>tx-client</artifactId>
+            <version>${lcn.last.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-pool</artifactId>
+                    <groupId>commons-pool</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-io</artifactId>
+                    <groupId>commons-io</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-codec</artifactId>
+                    <groupId>commons-codec</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+
+</project>

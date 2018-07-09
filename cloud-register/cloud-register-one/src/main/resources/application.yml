@@ -1,0 +1,30 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: register-one
+  security:
+    user:
+      name: root
+      password: 123
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    #实例id的组成，可自定义是否去除host
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://root:123@127.0.0.1:9092/eureka/
+
+
+
+
+

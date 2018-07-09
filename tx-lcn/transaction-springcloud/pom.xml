@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>tx-lcn</artifactId>
+        <groupId>com.xiu</groupId>
+        <version>4.1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>transaction-springcloud</artifactId>
+    <version>${lcn.last.version}</version>
+    <name>transaction-springcloud</name>
+    <description>transaction-springcloud project for Spring Boot</description>
+
+    <properties>
+        <spring-cloud.version>2.0.0.RELEASE</spring-cloud.version>
+        <org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+    </properties>
+
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.xiu</groupId>
+            <artifactId>tx-client</artifactId>
+            <version>${lcn.last.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${spring-cloud.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-configuration</artifactId>
+                    <groupId>commons-configuration</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jackson-annotations</artifactId>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>archaius-core</artifactId>
+                    <groupId>com.netflix.archaius</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>rxjava</artifactId>
+                    <groupId>io.reactivex</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>aspectjweaver</artifactId>
+                    <groupId>org.aspectj</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>hystrix-core</artifactId>
+                    <groupId>com.netflix.hystrix</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>servo-core</artifactId>
+                    <groupId>com.netflix.servo</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-collections</artifactId>
+                    <groupId>commons-collections</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>httpclient</artifactId>
+                    <groupId>org.apache.httpcomponents</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

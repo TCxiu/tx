@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: test-api
+
+server:
+  port: 9638
+
+ribbon:
+   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+   MaxAutoRetriesNextServer: 1
+
+tm:
+  manager:
+    url: http://localhost:8899/tx/manager/
+
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 500  #并发执行的最大线程数，默认10
+  command:
+    paas-file:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3600000
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 8000  #命令执行超时时间，默认1000ms
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+        #logger-level: basic
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  #租期到期时间，默认90秒
+    lease-expiration-duration-in-seconds: 60
+  #租赁更新时间间隔，默认30，即30秒发送一次心跳
+    lease-renewal-interval-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://root:123@localhost:9091/eureka/,http://root:123@localhost:9092/eureka/,
